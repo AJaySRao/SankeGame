@@ -6,17 +6,16 @@ s = Screen()
 s.setup(600, 600)
 s.bgcolor('black')
 s.tracer(0)
-s.listen()
 
 snake = Snake()
-snake.snake()
 
+s.listen()
 game = True
 
-s.onkey(key='w', fun=snake.move_up)
-s.onkey(key='s', fun=snake.move_down)
-s.onkey(key='a', fun=snake.move_left)
-s.onkey(key='d', fun=snake.move_right)
+s.onkey(key='Up', fun=snake.move_up)
+s.onkey(key='Down', fun=snake.move_down)
+s.onkey(key='Left', fun=snake.move_left)
+s.onkey(key='Right', fun=snake.move_right)
 
 while game:
     s.update()
