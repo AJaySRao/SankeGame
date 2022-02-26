@@ -49,10 +49,8 @@ while game:
         game = False
 
     #When the snake touches its own body
-    for snake_body in snake.segments:
-        if snake_body == snake.snake_head:
-            pass
-        elif snake.snake_head.distance(snake_body) < 10:
+    for snake_body in snake.segments[1:]:
+        if snake.snake_head.distance(snake_body) < 10:
             score.game_over()
             game = False
 
