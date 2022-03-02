@@ -47,3 +47,12 @@ class Snake:
     def move_down(self):
         if self.snake_head.heading() != DIRECTIONS[1]:
             self.snake_head.setheading(DIRECTIONS[3])
+
+    def reset(self):
+        for seg in self.segments:
+            seg.goto(1000, 1000)
+        self.segments.clear()
+        self.snake()
+        self.snake_head = self.segments[0]
+
+
