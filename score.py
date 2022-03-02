@@ -10,7 +10,9 @@ class ScoreBoard(Turtle):
         self.hideturtle()
         self.goto(0, 270)
         self.S = 0
-        self.HS = 0
+        with open("score_sheet.txt") as data:
+            old_score = data.read()
+        self.HS = int(old_score)
         self.update_score()
 
     def update_score(self):
@@ -28,7 +30,10 @@ class ScoreBoard(Turtle):
     #     self.compare_score()
 
     def compare_score(self):
+
         if self.S > self.HS:
             self.HS = self.S
+            with open('score_sheet.txt', mode='w') as file:
+                file.write(f"{self.HS}")
         self.S = 0
         self.update_score()
