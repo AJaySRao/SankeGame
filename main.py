@@ -35,7 +35,7 @@ while game:
     if snake.snake_head.distance(egg) <= 15:
         egg.move()
         snake.extend_segment()
-        score.update_score()
+        score.score_increase()
 
     #When snake hits his head to wall
     #Size of screen is set to 600/600
@@ -45,14 +45,18 @@ while game:
     # if the snake head touches any given number then the game stops
     if snake.snake_head.xcor() <= -290 or snake.snake_head.xcor() >= 290 or snake.snake_head.ycor() >= 280 or snake.\
             snake_head.ycor() <= -290:
-        score.game_over()
-        game = False
+        score.compare_score()
+        snake.reset()
+        # score.game_over()
+        # game = False
 
     #When the snake touches its own body
     for snake_body in snake.segments[1:]:
         if snake.snake_head.distance(snake_body) < 10:
-            score.game_over()
-            game = False
+            score.compare_score()
+            snake.reset()
+            # score.game_over()
+            # game = False
 
 
 
