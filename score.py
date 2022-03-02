@@ -33,7 +33,7 @@ class ScoreBoard(Turtle):
 
         if self.S > self.HS:
             self.HS = self.S
-            with open('score_sheet.txt', mode='w') as file:
-                file.write(f"{self.HS}")
+            with open('score_sheet.txt', mode='w') as data:
+                data.write(f"{self.HS}")
         self.S = 0
         self.update_score()
